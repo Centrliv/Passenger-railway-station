@@ -1,0 +1,268 @@
+CREATE DATABASE  IF NOT EXISTS `rail_pass_station` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `rail_pass_station`;
+-- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
+--
+-- Host: localhost    Database: rail_pass_station
+-- ------------------------------------------------------
+-- Server version	5.1.73-community
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `kassir`
+--
+
+DROP TABLE IF EXISTS `kassir`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kassir` (
+  `id_kassir` int(5) NOT NULL AUTO_INCREMENT,
+  `NPS` varchar(70) NOT NULL,
+  PRIMARY KEY (`id_kassir`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `lgoti`
+--
+
+DROP TABLE IF EXISTS `lgoti`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `lgoti` (
+  `title` varchar(45) NOT NULL,
+  `size` int(3) NOT NULL,
+  `comment` text NOT NULL,
+  PRIMARY KEY (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `mesta`
+--
+
+DROP TABLE IF EXISTS `mesta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mesta` (
+  `id_mesta` int(10) NOT NULL AUTO_INCREMENT,
+  `num` int(3) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `id_vagon` int(5) unsigned zerofill NOT NULL,
+  PRIMARY KEY (`id_mesta`),
+  KEY `id_vagon_idx` (`id_vagon`),
+  CONSTRAINT `id_vagon` FOREIGN KEY (`id_vagon`) REFERENCES `vagony` (`id_vagon`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1138 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `poezd`
+--
+
+DROP TABLE IF EXISTS `poezd`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `poezd` (
+  `id_poezd` varchar(5) NOT NULL,
+  `model` varchar(30) NOT NULL,
+  `dateent` varchar(10) NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id_poezd`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `raspisanie`
+--
+
+DROP TABLE IF EXISTS `raspisanie`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `raspisanie` (
+  `id_reis` varchar(5) NOT NULL,
+  `id_poezd` varchar(45) DEFAULT NULL,
+  `st_otpr` varchar(45) DEFAULT NULL,
+  `st_nazn` varchar(45) DEFAULT NULL,
+  `date_time_prib` datetime DEFAULT NULL,
+  `date_time_otpr` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `reisy`
+--
+
+DROP TABLE IF EXISTS `reisy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reisy` (
+  `id_reis` varchar(5) NOT NULL,
+  `type` varchar(15) NOT NULL,
+  `r_name` varchar(50) NOT NULL,
+  `id_poezd` varchar(45) NOT NULL,
+  `st_otpr` varchar(45) NOT NULL,
+  `st_nazn` varchar(45) NOT NULL,
+  `mest_obsh` int(4) NOT NULL,
+  `mest_svob` int(4) NOT NULL,
+  `cen_sid` decimal(8,2) NOT NULL,
+  `cen_plac` decimal(8,2) DEFAULT NULL,
+  `cen_kupe` decimal(8,2) DEFAULT NULL,
+  `cen_sv` decimal(8,2) DEFAULT NULL,
+  `date_time_otpr` datetime NOT NULL,
+  `date_time_prib` datetime NOT NULL,
+  PRIMARY KEY (`id_reis`),
+  KEY `r_name_idx` (`r_name`),
+  KEY `id_pezd_idx` (`id_poezd`),
+  CONSTRAINT `r_name` FOREIGN KEY (`r_name`) REFERENCES `routes` (`name`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `id_pezd` FOREIGN KEY (`id_poezd`) REFERENCES `poezd` (`id_poezd`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `routes`
+--
+
+DROP TABLE IF EXISTS `routes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `routes` (
+  `name` varchar(50) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `stations`
+--
+
+DROP TABLE IF EXISTS `stations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stations` (
+  `id_station` int(5) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `cena_sid` decimal(8,2) NOT NULL,
+  `cena_plac` decimal(8,2) DEFAULT NULL,
+  `cena_kupe` decimal(8,2) DEFAULT NULL,
+  `cena_sv` decimal(8,2) DEFAULT NULL,
+  `name_route` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_station`),
+  KEY `name_route_idx` (`name_route`),
+  CONSTRAINT `name_route` FOREIGN KEY (`name_route`) REFERENCES `routes` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ticketsdal`
+--
+
+DROP TABLE IF EXISTS `ticketsdal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ticketsdal` (
+  `id_ticket` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `id_poezd` varchar(5) DEFAULT NULL,
+  `dt_otpr` datetime DEFAULT NULL,
+  `id_vagon` int(5) DEFAULT NULL,
+  `vag_type` varchar(45) DEFAULT NULL,
+  `lgota` varchar(45) DEFAULT NULL,
+  `st_otpr` varchar(45) DEFAULT NULL,
+  `st_nazn` varchar(45) DEFAULT NULL,
+  `id_mesta` int(10) DEFAULT NULL,
+  `reis` varchar(45) DEFAULT NULL,
+  `dt_oform` datetime DEFAULT NULL,
+  `id_kassir` varchar(45) DEFAULT NULL,
+  `document` varchar(45) DEFAULT NULL,
+  `id_document` varchar(45) DEFAULT NULL,
+  `fio` varchar(50) DEFAULT NULL,
+  `stoim` decimal(8,2) DEFAULT NULL,
+  `dt_prib` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_ticket`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ticketsprig`
+--
+
+DROP TABLE IF EXISTS `ticketsprig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ticketsprig` (
+  `id_ticket` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `dt_prod` datetime NOT NULL,
+  `kassir` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `reis` varchar(50) NOT NULL,
+  `st_ot` varchar(45) NOT NULL,
+  `st_pr` varchar(45) NOT NULL,
+  `summa` decimal(8,2) NOT NULL,
+  `mesto` int(3) NOT NULL,
+  `vagon` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_ticket`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `name` varchar(35) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `pass` varchar(45) NOT NULL,
+  `groupe` varchar(20) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `vagony`
+--
+
+DROP TABLE IF EXISTS `vagony`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vagony` (
+  `id_vagon` int(5) unsigned zerofill NOT NULL,
+  `type` varchar(45) NOT NULL,
+  `kol` int(2) NOT NULL,
+  `id_poezd` varchar(5) NOT NULL,
+  PRIMARY KEY (`id_vagon`),
+  KEY `id_poezd_idx` (`id_poezd`),
+  CONSTRAINT `id_poezd` FOREIGN KEY (`id_poezd`) REFERENCES `poezd` (`id_poezd`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping events for database 'rail_pass_station'
+--
+
+--
+-- Dumping routines for database 'rail_pass_station'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-01-16 14:44:37

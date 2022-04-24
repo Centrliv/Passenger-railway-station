@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47C143DC-35E4-4C68-A9FB-48716C13988A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Passenger_railway_station</RootNamespace>
+    <AssemblyName>Passenger railway station</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Devart.Data, Version=5.0.2311.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data.MySql, Version=8.15.1519.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="itext.licensekey, Version=3.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.licensekey.3.0.5\lib\net40\itext.licensekey.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddFac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFac.Designer.cs">
+      <DependentUpon>AddFac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoute.Designer.cs">
+      <DependentUpon>AddRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSt.Designer.cs">
+      <DependentUpon>AddSt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTickDal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTickDal.Designer.cs">
+      <DependentUpon>AddTickDal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTickPrig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTickPrig.Designer.cs">
+      <DependentUpon>AddTickPrig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTrain.Designer.cs">
+      <DependentUpon>AddTrain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTrip.Designer.cs">
+      <DependentUpon>AddTrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUs.Designer.cs">
+      <DependentUpon>AddUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddVan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVan.Designer.cs">
+      <DependentUpon>AddVan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChSched.Designer.cs">
+      <DependentUpon>ChSched.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChUs.Designer.cs">
+      <DependentUpon>ChUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBank.cs" />
+    <Compile Include="Facilities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facilities.Designer.cs">
+      <DependentUpon>Facilities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rail_pass_stationDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rail_pass_stationDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="rpsDataSet.cs">
+      <DependentUpon>rpsDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rpsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Routes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Routes.Designer.cs">
+      <DependentUpon>Routes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule.Designer.cs">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stations.Designer.cs">
+      <DependentUpon>Stations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TicketsPrig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketsPrig.Designer.cs">
+      <DependentUpon>TicketsPrig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trains.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trains.Designer.cs">
+      <DependentUpon>Trains.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trips.Designer.cs">
+      <DependentUpon>Trips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsManege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsManege.Designer.cs">
+      <DependentUpon>UsManege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChFac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChFac.Designer.cs">
+      <DependentUpon>ChFac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChRoute.Designer.cs">
+      <DependentUpon>ChRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChSt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChSt.Designer.cs">
+      <DependentUpon>ChSt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChTrain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChTrain.Designer.cs">
+      <DependentUpon>ChTrain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vans.Designer.cs">
+      <DependentUpon>Vans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChVan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChVan.Designer.cs">
+      <DependentUpon>ChVan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperatorForm.Designer.cs">
+      <DependentUpon>OperatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KassirForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KassirForm.Designer.cs">
+      <DependentUpon>KassirForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TicketsDal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketsDal.Designer.cs">
+      <DependentUpon>TicketsDal.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddFac.resx">
+      <DependentUpon>AddFac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRoute.resx">
+      <DependentUpon>AddRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSt.resx">
+      <DependentUpon>AddSt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTickDal.resx">
+      <DependentUpon>AddTickDal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTickPrig.resx">
+      <DependentUpon>AddTickPrig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTrain.resx">
+      <DependentUpon>AddTrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTrip.resx">
+      <DependentUpon>AddTrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUs.resx">
+      <DependentUpon>AddUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddVan.resx">
+      <DependentUpon>AddVan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChSched.resx">
+      <DependentUpon>ChSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChUs.resx">
+      <DependentUpon>ChUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facilities.resx">
+      <DependentUpon>Facilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Routes.resx">
+      <DependentUpon>Routes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stations.resx">
+      <DependentUpon>Stations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketsPrig.resx">
+      <DependentUpon>TicketsPrig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trains.resx">
+      <DependentUpon>Trains.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trips.resx">
+      <DependentUpon>Trips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsManege.resx">
+      <DependentUpon>UsManege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChFac.resx">
+      <DependentUpon>ChFac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChRoute.resx">
+      <DependentUpon>ChRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChSt.resx">
+      <DependentUpon>ChSt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChTrain.resx">
+      <DependentUpon>ChTrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vans.resx">
+      <DependentUpon>Vans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChVan.resx">
+      <DependentUpon>ChVan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperatorForm.resx">
+      <DependentUpon>OperatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KassirForm.resx">
+      <DependentUpon>KassirForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketsDal.resx">
+      <DependentUpon>TicketsDal.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="rail_pass_stationDataSet1.xsc">
+      <DependentUpon>rail_pass_stationDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="rail_pass_stationDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rail_pass_stationDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rail_pass_stationDataSet1.xss">
+      <DependentUpon>rail_pass_stationDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="rpsDataSet.xsc">
+      <DependentUpon>rpsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="rpsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rpsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rpsDataSet.xss">
+      <DependentUpon>rpsDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
